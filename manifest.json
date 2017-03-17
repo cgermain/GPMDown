@@ -1,0 +1,25 @@
+{
+  "name": "GPMDown",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Pulling out all XLS files from the GPM results page",
+  "homepage_url": "http://github.com/cgermain",
+  "icons": {
+    "128": "128.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Downloading."
+  },
+  "permissions": [
+    "https://*/*",
+    "http://*/*",
+    "tabs",
+    "file://*/*"
+  ]
+}
