@@ -1,11 +1,18 @@
 // this is the code which will be injected into a given page...
 
 (function() {
-	var regex = />(GPM.+)<\/a>/g;
+	var regex = /(GPM\d+)/g;
 	var all_html = document.documentElement.innerHTML;
-	var gpm_files = regex.exec(all_html);
+	var match = regex.exec(all_html);
+	var gpm_files = [];
 
-	console.log(gpm_files[1]);
+	while (match !== null) {
+		gpm_files.push(match[1]);
+		match = regex.exec(all_html);
+	}
+
+	gpm_files = Array.from(new Set(gpm_files));
+	console.log(gpm_files);
 
 	for (i = 0; i < gpm_files; i++){
 		var a = document.createElement('a');
@@ -16,13 +23,5 @@
 		a.click();
 		delete a;
 	}
-
-	// // just place a div at top right
-	// var div = document.createElement('div');
-	// div.style.position = 'fixed';
-	// div.style.top = 0;
-	// div.style.right = 0;
-	// div.textContent = 'Click here to download XLS';
-	// document.body.appendChild(div);
 
 })();
