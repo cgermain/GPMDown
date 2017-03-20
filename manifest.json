@@ -8,9 +8,7 @@
     "128": "128.png"
   },
   "background": {
-    "scripts": [
-      "background.js"
-    ],
+    "scripts": ["background.js"],
     "persistent": true
   },
   "browser_action": {
